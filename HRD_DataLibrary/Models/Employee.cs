@@ -22,6 +22,7 @@ namespace HRD_DataLibrary.Models
         public string Phone { get; set; }
         public string Education { get; set; }
         public DateTime EmploymentDate { get; set; }
+        public bool Deleted { get; set; }
 
         public Position Position { get; set; }
         public ICollection<FiredEmployee> FiredEmployees { get; set; }
@@ -36,15 +37,16 @@ namespace HRD_DataLibrary.Models
 
             Employee other = (Employee) obj;
             return EmployeeId == other.EmployeeId
-                   && PositionId == other.PositionId
-                   && string.Equals(FirstName, other.FirstName)
-                   && string.Equals(LastName, other.LastName)
-                   && string.Equals(Patronymic, other.Patronymic)
-                   && BirthDate.Equals(other.BirthDate)
-                   && string.Equals(Address, other.Address)
-                   && string.Equals(Phone, other.Phone)
-                   && string.Equals(Education, other.Education)
-                   && EmploymentDate.Equals(other.EmploymentDate);
+                       && PositionId == other.PositionId
+                       && string.Equals(FirstName, other.FirstName)
+                       && string.Equals(LastName, other.LastName)
+                       && string.Equals(Patronymic, other.Patronymic)
+                       && BirthDate.Equals(other.BirthDate)
+                       && string.Equals(Address, other.Address)
+                       && string.Equals(Phone, other.Phone)
+                       && string.Equals(Education, other.Education)
+                       && EmploymentDate.Equals(other.EmploymentDate) 
+                       && Deleted == other.Deleted;
         }
 
         public override int GetHashCode()
@@ -61,6 +63,7 @@ namespace HRD_DataLibrary.Models
                 hashCode = (hashCode * 397) ^ (Phone != null ? Phone.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Education != null ? Education.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ EmploymentDate.GetHashCode();
+                hashCode = (hashCode * 397) ^ Deleted.GetHashCode();
                 return hashCode;
             }
         }
@@ -76,7 +79,8 @@ namespace HRD_DataLibrary.Models
                    $"{nameof(Address)}: {Address}, " +
                    $"{nameof(Phone)}: {Phone}, " +
                    $"{nameof(Education)}: {Education}, " +
-                   $"{nameof(EmploymentDate)}: {EmploymentDate}";
+                   $"{nameof(EmploymentDate)}: {EmploymentDate}, " +
+                   $"{nameof(Deleted)}: {Deleted}";
         }
     }
 }

@@ -13,6 +13,7 @@ namespace HRD_DataLibrary.Models
         public string Name { get; set; }
         public int Cabinet { get; set; }
         public string Phone { get; set; }
+        public bool Deleted { get; set; }
         
         public ICollection<Position> Positions { get; set; }
 
@@ -24,9 +25,10 @@ namespace HRD_DataLibrary.Models
 
             Department other = (Department) obj;
             return DepartmentId == other.DepartmentId
-                          && string.Equals(Name, other.Name)
-                          && Cabinet == other.Cabinet
-                          && string.Equals(Phone, other.Phone);
+                        && string.Equals(Name, other.Name)
+                        && Cabinet == other.Cabinet
+                        && string.Equals(Phone, other.Phone)
+                        && Deleted == other.Deleted;
         }
 
         public override int GetHashCode()
@@ -37,6 +39,7 @@ namespace HRD_DataLibrary.Models
                 hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ Cabinet;
                 hashCode = (hashCode * 397) ^ (Phone != null ? Phone.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ Deleted.GetHashCode();
                 return hashCode;
             }
         }
@@ -46,7 +49,8 @@ namespace HRD_DataLibrary.Models
             return $"{nameof(DepartmentId)}: {DepartmentId}, " +
                    $"{nameof(Name)}: {Name}, " +
                    $"{nameof(Cabinet)}: {Cabinet}, " +
-                   $"{nameof(Phone)}: {Phone}";
+                   $"{nameof(Phone)}: {Phone}, " +
+                   $"{nameof(Deleted)}: {Deleted}";
         }
     }
 }

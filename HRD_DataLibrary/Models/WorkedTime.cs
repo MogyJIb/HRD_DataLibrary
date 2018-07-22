@@ -9,6 +9,7 @@ namespace HRD_DataLibrary.Models
         public DateTime Date { get; set; }
         public TimeSpan ArrivalTime { get; set; }
         public TimeSpan LeavingTime { get; set; }
+        public bool Deleted { get; set; }
 
         public Employee Employee { get; set; }
         
@@ -17,12 +18,14 @@ namespace HRD_DataLibrary.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             WorkedTime other = (WorkedTime) obj;
             return WorkedTimeId == other.WorkedTimeId 
-                   && EmployeeId == other.EmployeeId 
-                   && Date.Equals(other.Date) 
-                   && ArrivalTime.Equals(other.ArrivalTime) 
-                   && LeavingTime.Equals(other.LeavingTime);
+                       && EmployeeId == other.EmployeeId 
+                       && Date.Equals(other.Date) 
+                       && ArrivalTime.Equals(other.ArrivalTime) 
+                       && LeavingTime.Equals(other.LeavingTime)
+                       && Deleted == other.Deleted;
         }
 
         public override int GetHashCode()
@@ -34,6 +37,7 @@ namespace HRD_DataLibrary.Models
                 hashCode = (hashCode * 397) ^ Date.GetHashCode();
                 hashCode = (hashCode * 397) ^ ArrivalTime.GetHashCode();
                 hashCode = (hashCode * 397) ^ LeavingTime.GetHashCode();
+                hashCode = (hashCode * 397) ^ Deleted.GetHashCode();
                 return hashCode;
             }
         }
@@ -44,7 +48,8 @@ namespace HRD_DataLibrary.Models
                    $"{nameof(EmployeeId)}: {EmployeeId}, " +
                    $"{nameof(Date)}: {Date}, " +
                    $"{nameof(ArrivalTime)}: {ArrivalTime}, " +
-                   $"{nameof(LeavingTime)}: {LeavingTime}";
+                   $"{nameof(LeavingTime)}: {LeavingTime}, " +
+                   $"{nameof(Deleted)}: {Deleted}";
         }
     }
 }

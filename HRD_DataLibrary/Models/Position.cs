@@ -16,6 +16,7 @@ namespace HRD_DataLibrary.Models
         public double Salary { get; set; }
         public string Duties { get; set; }
         public string Requirements { get; set; }
+        public bool Deleted { get; set; }
 
         public Department Department { get; set; }
         public ICollection<Employee> Employees { get; set; }
@@ -26,13 +27,15 @@ namespace HRD_DataLibrary.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             Position other = (Position) obj;
             return PositionId == other.PositionId
-                   && DepartmentId == other.DepartmentId
-                   && string.Equals(Name, other.Name)
-                   && Salary.Equals(other.Salary)
-                   && string.Equals(Duties, other.Duties)
-                   && string.Equals(Requirements, other.Requirements);
+                       && DepartmentId == other.DepartmentId
+                       && string.Equals(Name, other.Name)
+                       && Salary.Equals(other.Salary)
+                       && string.Equals(Duties, other.Duties)
+                       && string.Equals(Requirements, other.Requirements)
+                       && Deleted == other.Deleted;
         }
 
         public override int GetHashCode()
@@ -45,6 +48,7 @@ namespace HRD_DataLibrary.Models
                 hashCode = (hashCode * 397) ^ Salary.GetHashCode();
                 hashCode = (hashCode * 397) ^ (Duties != null ? Duties.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (Requirements != null ? Requirements.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ Deleted.GetHashCode();
                 return hashCode;
             }
         }
@@ -57,7 +61,8 @@ namespace HRD_DataLibrary.Models
                    $"{nameof(Salary)}: {Salary}, " +
                    $"{nameof(Duties)}: {Duties}, " +
                    $"{nameof(Requirements)}: {Requirements}, " +
-                   $"{nameof(Department)}: {Department}";
+                   $"{nameof(Department)}: {Department}, " +
+                   $"{nameof(Deleted)}: {Deleted}";
         }
     }
     }
