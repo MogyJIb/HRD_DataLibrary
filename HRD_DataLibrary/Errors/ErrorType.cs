@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace HRD_DataLibrary.Errors
 {
-    public class ErrorType
-    {
-        public long ErrorCode { get; set; }
+    public enum ErrorType { WrongPassword = 410, NonExistentLogin = 411 }
 
-        public ErrorType(long errorCode)
+    public class Error
+    {
+        public ErrorType ErrorType { get; }
+
+        public Error(ErrorType errorType)
         {
-            ErrorCode = errorCode;
+            ErrorType = errorType;
         }
 
         public override string ToString()
         {
-            return $"{nameof(ErrorCode)}: {ErrorCode}";
+            return $"{nameof(ErrorType)}: {ErrorType}";
         }
 
-        protected bool Equals(ErrorType other)
+        protected bool Equals(Error other)
         {
-            return ErrorCode == other.ErrorCode;
+            return ErrorType == other.ErrorType;
         }
 
         public override bool Equals(object obj)
@@ -35,7 +37,7 @@ namespace HRD_DataLibrary.Errors
 
         public override int GetHashCode()
         {
-            return ErrorCode.GetHashCode();
+            return ErrorType.GetHashCode();
         }
     }
 }
