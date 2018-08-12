@@ -23,7 +23,6 @@ x64/
 x86/
 build/
 bld/
-[Bb]in/
 [Oo]bj/
 [Oo]ut/
 msbuild.log
@@ -32,3 +31,9 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# Ignore library file
+/[Bb]in/*
+!/[Bb]in/Realese
+/[Bb]in/Realese/*
+!/[Bb]in/Release/HRD_DataLibrary.dll
