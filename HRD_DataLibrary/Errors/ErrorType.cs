@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HRD_DataLibrary.Errors
 {
-    class ErrorType
+    public class ErrorType
     {
         public long ErrorCode { get; set; }
 
