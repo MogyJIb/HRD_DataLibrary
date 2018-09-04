@@ -5,19 +5,26 @@ namespace HRD_DataLibrary.General
 {
     public class AuthSession
     {
-        public string Id { get; }
-        public DateTime StartDate { get; }
+        public string Id { get; set; }
+        public DateTime StartDate { get; set; }
 
         public AuthSession()
         {
-            Id = Guid.NewGuid().ToString();
-            StartDate = DateTime.Now;
+            
         }
 
         public AuthSession(string id, DateTime startDate)
         {
             Id = id;
             StartDate = startDate;
+        }
+
+        public static AuthSession GetInstance()
+        {
+            string id = Guid.NewGuid().ToString();
+            DateTime startDate = DateTime.Now;
+
+            return new AuthSession(id, startDate);
         }
 
         public override bool Equals(object obj)
