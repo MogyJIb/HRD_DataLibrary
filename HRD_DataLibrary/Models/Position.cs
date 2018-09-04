@@ -4,12 +4,6 @@ namespace HRD_DataLibrary.Models
 {
     public class Position
     {
-        public Position()
-        {
-            Employees = new HashSet<Employee>();
-            Vacancies = new HashSet<Vacancy>();
-        }
-
         public int PositionId { get; set; }
         public int DepartmentId { get; set; }
         public string Name { get; set; }
@@ -19,8 +13,6 @@ namespace HRD_DataLibrary.Models
         public bool Deleted { get; set; }
 
         public Department Department { get; set; }
-        public ICollection<Employee> Employees { get; set; }
-        public ICollection<Vacancy> Vacancies { get; set; }
         
         public override bool Equals(object obj)
         {

@@ -5,13 +5,6 @@ namespace HRD_DataLibrary.Models
 {
     public class Employee
     {
-        public Employee()
-        {
-            FiredEmployees = new HashSet<FiredEmployee>();
-            Rewards = new HashSet<Reward>();
-            WorkedTime = new HashSet<WorkedTime>();
-        }
-
         public int EmployeeId { get; set; }
         public int PositionId { get; set; }
         public string FirstName { get; set; }
@@ -25,9 +18,6 @@ namespace HRD_DataLibrary.Models
         public bool Deleted { get; set; }
 
         public Position Position { get; set; }
-        public ICollection<FiredEmployee> FiredEmployees { get; set; }
-        public ICollection<Reward> Rewards { get; set; }
-        public ICollection<WorkedTime> WorkedTime { get; set; }
 
         public override bool Equals(object obj)
         {
