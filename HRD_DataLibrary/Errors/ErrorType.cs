@@ -10,6 +10,7 @@ namespace HRD_DataLibrary.Errors
     {
         WrongPassword = 410,
         NonExistentLogin = 411,
-        AuthanticationFaild = 412
+        AuthanticationFaild = 412,
+        NotFoundObject = 413
     }
 }
