@@ -17,6 +17,8 @@ namespace HRD_DataLibrary.Models
         public string Specialty { get; set; }
         public bool Deleted { get; set; }
 
+        public Vacancy Vacancy { get; set; }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;

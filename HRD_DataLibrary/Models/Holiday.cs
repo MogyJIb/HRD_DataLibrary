@@ -12,6 +12,8 @@ namespace HRD_DataLibrary.Models
         public double Salary { get; set; }
         public bool Deleted { get; set; }
        
+        public Employee Employee { get; set; }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
