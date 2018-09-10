@@ -13,7 +13,8 @@ namespace HRD_DataLibrary.Models
         public bool Deleted { get; set; }
 
         public Department Department { get; set; }
-        
+        public string DepartmentName { get { return Department == null ? null : Department.Name; } }
+
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;

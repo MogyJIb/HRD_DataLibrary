@@ -18,6 +18,7 @@ namespace HRD_DataLibrary.Models
         public bool Deleted { get; set; }
 
         public Vacancy Vacancy { get; set; }
+        public string PositionName { get { return Vacancy == null ? null : Vacancy.Position.Name; } }
 
         public override bool Equals(object obj)
         {

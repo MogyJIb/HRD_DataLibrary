@@ -18,6 +18,7 @@ namespace HRD_DataLibrary.Models
         public bool Deleted { get; set; }
 
         public Position Position { get; set; }
+        public string PositionName { get { return Position == null ? null : Position.Name; } }
 
         public override bool Equals(object obj)
         {
